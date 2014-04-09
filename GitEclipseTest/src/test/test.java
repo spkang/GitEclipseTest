@@ -24,6 +24,21 @@ public class test {
 		}
 	}
 	
+	public void testremove(List<Integer> des, List<Integer> org) {
+		
+		for (int i = 0; i < des.size(); ++i) {
+			Integer item = des.get(i);
+			System.out.println("item : " + item);
+			if (org.contains(item-1)) {
+				org.add(item);
+				des.remove(i);
+				--i;
+			}
+			System.out.println("des : " + des.toString());
+			System.out.println("org : " + org.toString());
+		}
+	}
+	
 	public static void main (String [] args) {
 //		System.out.println("Hello world!");
 //		System.out.println ("Hello GitHub");
@@ -33,17 +48,32 @@ public class test {
 //		System.out.println("out : " + sentence);
 		
 		
-		List<String> objList = new ArrayList<String>();
+//		List<String> objList = new ArrayList<String>();
 		
 		test t  = new test();
 		
-		t.testTwo(objList);
+//		t.testTwo(objList);
+//		
+//		System.out.println("list : " + objList.toString());
+//		
+//		t.testTwo(objList);
+//		
+//		System.out.println("list : " + objList.toString());
+
 		
-		System.out.println("list : " + objList.toString());
+		List<Integer> des = new ArrayList<Integer> ();
+		List<Integer> org = new ArrayList<Integer> ();
 		
-		t.testTwo(objList);
+		des.add(1);
+		des.add(3);
+		des.add(5);
 		
-		System.out.println("list : " + objList.toString());
+		org.add(0);
+		org.add(2);
+		org.add(4);
+		
+		
+		t.testremove(des, org);
 		
 	}
 }
